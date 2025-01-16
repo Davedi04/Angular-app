@@ -1,10 +1,16 @@
-.h1 {
-    font-family: 'Bubbleboddy Neue', cursive;
-    color: #DA001E; /* Rouge de la palette */
-  }
-  
-  .text {
-    font-family: 'Comfortaa', sans-serif;
-    color: #151217; /* Noir de la palette */
-  }
-  
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Assure que le conteneur prend toute la hauteur de la fenêtre */
+}
+
+.content {
+  flex: 1; /* Permet à ce bloc de prendre tout l’espace disponible */
+}
