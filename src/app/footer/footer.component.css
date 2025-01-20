@@ -1,4 +1,4 @@
-footer {
+.footer {
   background-color: #F9D0A3;
   color: #000;
   display: flex;
@@ -6,24 +6,25 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-
-  nav ul {
-    list-style: none;
-    display: flex;
-
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #000;
-    transition: color 0.3s ease;
-  }
-
-  nav ul li a:hover,
-  nav ul li a.active {
-    color: #ffa500;
-  }
+  border-top: solid 3px;
 }
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.nav ul li a:hover,
+.nav ul li a.active {
+  color: #ffa500;
+}
+

@@ -1,11 +1,15 @@
 <header class="header">
-    <a routerLink="/">
-        <img src="/assets/Logo-1.jpg" class="logo">
-    </a>
-    <nav class="navbar">
-        <ul class="nav-list">
-            <li><a routerLink="/home" routerLinkActive="active">Accueil</a></li>
-            <li><a routerLink="/apropos" routerLinkActive="active">A propos</a></li>
+    <div class="logo-container">
+      <a routerLink="/" class="logo">
+        <img src="assets/logo.jpg" alt="Logo" />
+      </a>
+    </div>
+    <nav class="nav">
+      <div class="menu-container">
+        <ul>
+          <li><a routerLink="/about" class="menu-link">À propos</a></li>
+          <li><a routerLink="/contact" class="menu-link">Contact</a></li>
         </ul>
+      </div>
     </nav>
 </header>

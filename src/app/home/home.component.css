@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bloc1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    background-image: url('/assets/fond1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+    border-bottom: solid 3px;
+}    
+
+.bloc2 {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .hero p {
+      font-size: 1.2rem;
+    }
+  
+    .catalogue h2 {
+      font-size: 1.5rem;
+    }
+  
+    .catalogue li {
+      font-size: 1rem;
+    }
+  }
+  

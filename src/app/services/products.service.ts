@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class ProductsService {
-  products = [
-    { id: 1, name: 'Figurine Astérix', price: 30 },
-    { id: 2, name: 'Figurine Obélix', price: 40 },
-    { id: 3, name: 'Figurine Idéfix', price: 20 },
-  ];
+export class ProductService {
+  private productsUrl = 'assets/products.json';
 
-  getProducts() {
-    return this.products;
-  }
+  constructor(private http: HttpClient) {}
 
-  getProductById(id: number) {
-    return this.products.find((product) => product.id === id);
+  getProducts(): Observable<any[]> {
+    return this.http.get<any[]>(this.productsUrl);
   }
 }

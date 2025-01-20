@@ -1,17 +1,31 @@
 @font-face {
-    font-family: 'Bubbleboddy Neue';
-    src: url('./assets/fonts/bubbleboddyneue-regular\ trial.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Bubbleboddy';
+  src: url('assets/fonts/bubbleboddyneue-regular\ trial.ttf') format('truetype');
 }
-  
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
-  
-  body {
-    font-family: 'Comfortaa', sans-serif;
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('assets/fonts/Comfortaa-Regular.ttf') format('truetype');
 }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bubbleboddy Neue', cursive;
-  }
-  
+
+body {
+  font-family: 'Comfortaa', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Bubbleboddy', sans-serif;
+}
+
+:root {
+  --primary-color: #F9D0A3;
+  --secondary-color: #FDD90B;
+  --dark-color: #151217;
+  --accent-color: #DA001E;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  margin: 0;
+  padding: 0;
+}

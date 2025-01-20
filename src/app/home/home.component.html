@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="container">
+  <div class="bloc1">
+    <h1>Bienvenue chez Au Petit Village</h1>
+    <p>Découvrez nos figurines faites main <br/> inspirées d’Astérix et Obélix !</p>
+  </div>
+  <div class="bloc2">
+    <h2>Catalogue</h2>
+    <ul>
+      <li *ngFor="let product of products">        <a [routerLink]="['/product', product.id]">{{ product.name }}</a> - {{ product.name }} €
+      </li>
+    </ul>
+  </div>
+</div>
