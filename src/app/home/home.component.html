@@ -4,10 +4,15 @@
     <p>Découvrez nos figurines faites main <br/> inspirées d’Astérix et Obélix !</p>
   </div>
   <div class="bloc2">
-    <h2>Catalogue</h2>
-    <ul>
-      <li *ngFor="let product of products">        <a [routerLink]="['/product', product.id]">{{ product.name }}</a> - {{ product.name }} €
-      </li>
-    </ul>
+    <h2>Catalogue des Figurines</h2>
+    <div class="catalogue">
+      <div class="product" *ngFor="let product of products">
+        <img [src]="product.image" [alt]="product.name" class="product-image" />
+        <h3>{{ product.name }}</h3>
+        <p>Prix : {{ product.price | currency:'EUR' }}</p>
+        <a [routerLink]="['/product', product.id]" class="details-link">Voir le détail</a>
+      </div>
+    </div>
   </div>
-</div>
+</div>    
+    

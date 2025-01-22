@@ -1,0 +1,22 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 15px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  

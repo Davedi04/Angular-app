@@ -1,3 +1,7 @@
-<h1>{{ product.name }}</h1>
-<p>Prix : {{ product.price | currency:'EUR' }}</p>
+<div class="product">
+    <h1>{{ product.name }}</h1>
+        <img [src]="product.image" alt="{{ product.name }}" />
+    <p>Prix : {{ product.price | currency }}</p>
+    <p class="description">{{ product.description }}</p>
+</div>  
 <a routerLink="/">Retour au catalogue</a>
