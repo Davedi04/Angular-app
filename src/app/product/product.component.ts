@@ -1,34 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { ProductsService } from '../services/products.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product',
+  imports: [RouterModule],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
-  standalone: true,
-  imports: [CommonModule],
 })
-export class ProductComponent {
-  product: any;
+export class ProductComponent implements OnInit {
+  product: any ={};
 
-  constructor(private route: ActivatedRoute) {
-    const id = this.route.snapshot.paramMap.get('id') || 'unknown'; // Utiliser 'unknown' comme clé par défaut
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductsService
+  ) {}
 
-    // Dictionnaire des produits
-    const productData: { [key: string]: { name: string; price: number; image: string; description: string } } = {
-      '1': { name: 'Figurine Astérix', price: 19.99, image: 'assets/images/astérix.jpg', description: 'Le Lorem Ipsum est simplement du faux texte utilisé dans la composition et la mise en page avant impression. Il est le faux texte standard de l_industrie depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères et les a mélangés pour créer un livre de spécimens de caractères. Il a survécu non seulement à cinq siècles, mais aussi au saut vers la composition électronique, en restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la publication de feuilles Letraset contenant des passages du Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions du Lorem Ipsum.' },
-      '2': { name: 'Figurine Obélix', price: 29.99, image: 'assets/images/obélix.jpg', description: 'Le Lorem Ipsum est simplement du faux texte utilisé dans la composition et la mise en page avant impression. Il est le faux texte standard de l_industrie depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères et les a mélangés pour créer un livre de spécimens de caractères. Il a survécu non seulement à cinq siècles, mais aussi au saut vers la composition électronique, en restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la publication de feuilles Letraset contenant des passages du Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions du Lorem Ipsum.' },
-      '3': { name: 'Figurine Idéfix', price: 14.99, image: 'assets/images/idéfix.jpg', description: 'Le Lorem Ipsum est simplement du faux texte utilisé dans la composition et la mise en page avant impression. Il est le faux texte standard de l_industrie depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères et les a mélangés pour créer un livre de spécimens de caractères. Il a survécu non seulement à cinq siècles, mais aussi au saut vers la composition électronique, en restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la publication de feuilles Letraset contenant des passages du Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions du Lorem Ipsum.' },
-      '4': { name: 'Figurine Panoramix', price: 24.99, image: 'assets/images/panoramix.jpg', description: 'Le Lorem Ipsum est simplement du faux texte utilisé dans la composition et la mise en page avant impression. Il est le faux texte standard de l_industrie depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères et les a mélangés pour créer un livre de spécimens de caractères. Il a survécu non seulement à cinq siècles, mais aussi au saut vers la composition électronique, en restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la publication de feuilles Letraset contenant des passages du Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions du Lorem Ipsum.' },
-      '5': { name: 'Figurine Falbala', price: 18.99, image: 'assets/images/falbala.jpg', description: 'Le Lorem Ipsum est simplement du faux texte utilisé dans la composition et la mise en page avant impression. Il est le faux texte standard de l_industrie depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères et les a mélangés pour créer un livre de spécimens de caractères. Il a survécu non seulement à cinq siècles, mais aussi au saut vers la composition électronique, en restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la publication de feuilles Letraset contenant des passages du Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions du Lorem Ipsum.' },
-      '6': { name: 'Figurine Assurancetourix', price: 22.99, image: 'assets/images/assurancetourix.jpg', description: 'Le Lorem Ipsum est simplement du faux texte utilisé dans la composition et la mise en page avant impression. Il est le faux texte standard de l_industrie depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères et les a mélangés pour créer un livre de spécimens de caractères. Il a survécu non seulement à cinq siècles, mais aussi au saut vers la composition électronique, en restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la publication de feuilles Letraset contenant des passages du Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions du Lorem Ipsum.' },
-      '7': { name: 'Figurine Abraracourcix', price: 27.99, image: 'assets/images/abraracourcix.jpg', description: 'Le Lorem Ipsum est simplement du faux texte utilisé dans la composition et la mise en page avant impression. Il est le faux texte standard de l_industrie depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères et les a mélangés pour créer un livre de spécimens de caractères. Il a survécu non seulement à cinq siècles, mais aussi au saut vers la composition électronique, en restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la publication de feuilles Letraset contenant des passages du Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions du Lorem Ipsum.' },
-      '8': { name: 'Figurine Romain', price: 15.99, image: 'assets/images/romain.jpg', description: 'Le Lorem Ipsum est simplement du faux texte utilisé dans la composition et la mise en page avant impression. Il est le faux texte standard de l_industrie depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères et les a mélangés pour créer un livre de spécimens de caractères. Il a survécu non seulement à cinq siècles, mais aussi au saut vers la composition électronique, en restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la publication de feuilles Letraset contenant des passages du Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions du Lorem Ipsum.' },
-      unknown: { name: 'Produit inconnu', price: 0, image: 'assets/images/default.jpg', description: 'Le Lorem Ipsum est simplement du faux texte utilisé dans la composition et la mise en page avant impression. Il est le faux texte standard de l_industrie depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères et les a mélangés pour créer un livre de spécimens de caractères. Il a survécu non seulement à cinq siècles, mais aussi au saut vers la composition électronique, en restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la publication de feuilles Letraset contenant des passages du Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions du Lorem Ipsum.' }, // Cas par défaut
-    };
+  ngOnInit(): void {
+    const productIdString = this.route.snapshot.paramMap.get('id');
 
-    // Récupération des données du produit
-    this.product = productData[id];
+    if (productIdString) {
+      const productId = Number(productIdString);
+      this.product = this.productService.getProductById(productId);
+    }
   }
 }

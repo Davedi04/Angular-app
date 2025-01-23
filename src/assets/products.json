@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "name": "Astérix",
+      "description": "Figurine d'Astérix faite main.",
+      "price": 30,
+      "image": "/assets/images/asterix.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Obélix",
+      "description": "Figurine d'Obélix faite main.",
+      "price": 35,
+      "image": "/assets/images/obelix.jpg"
+    }
+  ]
+  

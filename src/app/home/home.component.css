@@ -1,28 +1,54 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.home-container {
+  position: relative;
+  height: 1650px; /* Hauteur de la fenêtre */
+  overflow: hidden;
+}
+
+.background {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/fond1.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px); /* Applique le flou uniquement à l'image */
+  z-index: -1; /* Place l'image derrière le contenu */
 }
 
 .bloc1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    background-image: url('/assets/fond1.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 500px;
-    width: 100%;
-    border-bottom: solid 3px;
-}    
+  position: relative;
+  z-index: 1; 
+  text-align: center;
+  padding-top: 100px; 
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.hh1 {
+  color: #FDD90B;
+}
+
+.pp1 {
+  color: #DA001E;
+}
 
 .bloc2 {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-top: #DA001E solid 3px;
+  color: #DA001E;
 }
 
 .catalogue {
@@ -30,7 +56,17 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+button {
+  margin-bottom: 80px;
+  padding: 5px;
+  margin-left: 120px;
+  margin-right: 600px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10%;
 }
 
 .product {
@@ -79,4 +115,3 @@
       font-size: 1rem;
     }
   }
-  

@@ -1,18 +1,27 @@
-<div class="container">
-  <div class="bloc1">
-    <h1>Bienvenue chez Au Petit Village</h1>
-    <p>Découvrez nos figurines faites main <br/> inspirées d’Astérix et Obélix !</p>
+<div class="home-container">
+  <div class="background">
+    <div class="bloc1">
+      <h1 class="hh1">Bienvenue chez Au Petit Village</h1>
+      <p class="pp1">
+        Le Lorem Ipsum est simplement du faux texte utilisé dans la composition
+        et la mise en page avant impression. Il est le faux texte standard de l_industrie
+        depuis les années 1500, lorsqu_un imprimeur anonyme a pris une galée de caractères 
+        et les a mélangés pour créer un livre de spécimens de caractères. 
+      </p>
+    </div>
   </div>
   <div class="bloc2">
     <h2>Catalogue des Figurines</h2>
+    <button (click)="toggleSortOrder()">
+      Trier par prix : {{ sortOrder === 'asc' ? 'croissant' : 'décroissant' }}
+    </button>
     <div class="catalogue">
-      <div class="product" *ngFor="let product of products">
-        <img [src]="product.image" [alt]="product.name" class="product-image" />
-        <h3>{{ product.name }}</h3>
-        <p>Prix : {{ product.price | currency:'EUR' }}</p>
-        <a [routerLink]="['/product', product.id]" class="details-link">Voir le détail</a>
-      </div>
+      <div class="product" *ngFor="let product of products | sortByPrice: sortOrder">
+        <img [src]="product.image" alt="{{ product.name }}">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.price }} €</p>
+        <a [routerLink]="['/product', product.id]">Voir le produit</a>
+      </div>     
     </div>
   </div>
-</div>    
-    
+</div>
