@@ -3,16 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProductsService } from '../services/products.service';
 import { SortByPricePipe } from '../pipes/sort-by-price.pipe';
+import { FilterByNamePipe } from '../pipes/filter-by-name.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, SortByPricePipe],
+  imports: [CommonModule, RouterModule, SortByPricePipe,FilterByNamePipe, FormsModule ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   products: any[] = [];
+
+  searchText = '';
 
   sortOrder: string = 'asc';
 

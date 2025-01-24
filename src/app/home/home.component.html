@@ -12,6 +12,10 @@
   </div>
   <div class="bloc2">
     <h2>Catalogue des Figurines</h2>
+    <input [(ngModel)]="searchText" placeholder="Rechercher un produit" />
+    <li *ngFor="let product of products | filterByName: searchText">
+      {{ product.name }}
+    </li>
     <button (click)="toggleSortOrder()">
       Trier par prix : {{ sortOrder === 'asc' ? 'croissant' : 'décroissant' }}
     </button>

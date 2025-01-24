@@ -1,6 +1,6 @@
 .home-container {
   position: relative;
-  height: 1650px; /* Hauteur de la fenêtre */
+  height: 1800px; /* Hauteur de la fenêtre */
   overflow: hidden;
 }
 
@@ -31,8 +31,8 @@
   z-index: 1; 
   text-align: center;
   padding-top: 100px; 
-  margin-left: 150px;
-  margin-right: 150px;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 .hh1 {
@@ -67,6 +67,16 @@ button {
   font-size: 16px;
   cursor: pointer;
   border-radius: 10%;
+}
+
+input {
+  margin-bottom: 80px;
+  padding: 5px;
+  margin-left: 120px;
+  margin-right: 500px;
+  font-size: 16px;
+  cursor: pointer;
+  border: solid 2px;
 }
 
 .product {
